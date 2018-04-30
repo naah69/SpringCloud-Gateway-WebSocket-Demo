@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+           - classpath:/yml/admin/
+           - classpath:/yml/bullet/
+           - classpath:/yml/game/
+           - classpath:/yml/gateway/
+server:
+  port: 1026
+eureka:
+  client:
+     serviceUrl:
+      defaultZone: http://127.0.0.1:1025/eureka/
