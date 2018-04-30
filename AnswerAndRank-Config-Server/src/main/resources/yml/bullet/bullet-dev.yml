@@ -1,0 +1,8 @@
+server:
+  port: ${random.int[11001,12000]}
+eureka:
+  client:
+     #下面两项没有代码提示
+     serviceUrl:
+      #服务治理地址
+      defaultZone: http://localhost:1025/eureka/
