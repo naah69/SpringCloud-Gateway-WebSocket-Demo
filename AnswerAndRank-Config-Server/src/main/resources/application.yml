@@ -1,3 +1,6 @@
+#logging:
+#  level:
+#    ROOT: DEBUG
 spring:
   application:
     name: config-server

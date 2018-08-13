@@ -49,11 +49,6 @@
                 <!--</exclusion>-->
             <!--</exclusions>-->
         </dependency>
-        <dependency>
-            <groupId>com.naah</groupId>
-            <artifactId>po</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--<dependency>-->
             <!--<groupId>org.springframework.session</groupId>-->
             <!--<artifactId>spring-session-data-redis</artifactId>-->

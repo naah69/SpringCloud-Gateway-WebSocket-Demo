@@ -1,7 +1,5 @@
 package com.naah.bullet;
 
-import com.naah.dto.BulletMessageDTO;
-import com.netflix.discovery.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
