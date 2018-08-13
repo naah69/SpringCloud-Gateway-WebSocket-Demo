@@ -1,11 +1,12 @@
 package com.naah.admin.service.impl;
 
-import com.xyl.game.po.TimeParam;
-import com.xyl.game.service.AnnualMeetingTimeSerivce;
-import com.xyl.game.utils.HeapVariable;
-import com.xyl.game.utils.InitData;
-import com.xyl.game.utils.TimeFormatUtil;
-import org.apache.log4j.Logger;
+import com.naah.admin.service.AnnualMeetingTimeSerivce;
+import com.naah.admin.utils.HeapVariable;
+import com.naah.admin.utils.InitData;
+import com.naah.admin.utils.TimeFormatUtil;
+import com.naah.po.TimeParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -18,7 +19,7 @@ import java.sql.Timestamp;
 @Service
 public class AnnualMeetingTimeSerivceImpl implements AnnualMeetingTimeSerivce {
 
-	private static final Logger logger = Logger.getLogger(AnnualMeetingQuestionExctFileServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(AnnualMeetingQuestionExctFileServiceImpl.class);
 
 	@Override
 	public void clearAllData() {

@@ -8,11 +8,13 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+public class WebSocketAutoConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/bullet").setAllowedOrigins("*").withSockJS();
+        registry.addEndpoint("/bullet")     //开启/bullet端点
+                .setAllowedOrigins("*")             //允许跨域访问
+                .withSockJS();                      //使用sockJS
     }
 
     @Override

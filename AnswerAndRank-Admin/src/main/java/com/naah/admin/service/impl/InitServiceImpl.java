@@ -1,13 +1,14 @@
 package com.naah.admin.service.impl;
 
-import com.xyl.game.po.Answer;
-import com.xyl.game.po.GridPage;
-import com.xyl.game.po.User;
-import com.xyl.game.service.InitService;
-import com.xyl.game.utils.FinalVariable;
-import com.xyl.game.utils.HeapVariable;
-import com.xyl.game.utils.QuestionUtils;
-import org.apache.log4j.Logger;
+import com.naah.admin.service.InitService;
+import com.naah.admin.utils.FinalVariable;
+import com.naah.admin.utils.HeapVariable;
+import com.naah.admin.utils.QuestionUtils;
+import com.naah.po.Answer;
+import com.naah.po.GridPage;
+import com.naah.po.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.List;
  */
 @Service
 public class InitServiceImpl implements InitService {
-    private final static Logger logger = Logger.getLogger(InitServiceImpl.class);
+    private final static Logger logger = LoggerFactory.getLogger(InitServiceImpl.class);
 
     @Override
     public GridPage initGame(String sessionId, User user) {

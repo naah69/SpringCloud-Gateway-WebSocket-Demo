@@ -1,6 +1,6 @@
 package com.naah.admin.service;
 
-import com.xyl.game.po.TimeParam;
+import com.naah.po.TimeParam;
 
 /**
  *

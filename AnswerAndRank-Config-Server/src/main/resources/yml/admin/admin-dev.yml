@@ -38,6 +38,6 @@ spring:
     host: 127.0.0.1
     port: 6379
     database: 1
-#mybatis:
-#  config-location: classpath:mybatis/mybatis-config.xml
-#  mapper-locations: classpath:mybatis/mapper/*.xml
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml

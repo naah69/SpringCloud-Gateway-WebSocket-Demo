@@ -1,10 +1,11 @@
 package com.naah.admin.service.impl;
 
-import com.xyl.game.po.Admin;
-import com.xyl.game.service.AuthenticationSerivce;
-import com.xyl.game.utils.HeapVariable;
-import com.xyl.game.utils.PropertiesUtils;
-import org.apache.log4j.Logger;
+import com.naah.admin.service.AuthenticationSerivce;
+import com.naah.admin.utils.HeapVariable;
+import com.naah.admin.utils.PropertiesUtils;
+import com.naah.po.Admin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Properties;
@@ -15,9 +16,9 @@ import java.util.Properties;
  *
  */
 @Service
-public class AuthenticationSerivceImpl implements AuthenticationSerivce{
+public class AuthenticationSerivceImpl implements AuthenticationSerivce {
 
-	private static final Logger logger = Logger.getLogger(AuthenticationSerivceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(AuthenticationSerivceImpl.class);
 	/**
 	 * 判断后台是否是第一次登录
 	 */

@@ -1,6 +1,6 @@
-package com.naah.admin;
+package com.naah.admin.mapper;
 
-import com.xyl.game.po.AnnualMeetingGameQuestion;
+import com.naah.po.AnnualMeetingGameQuestion;
 
 import java.util.List;
 

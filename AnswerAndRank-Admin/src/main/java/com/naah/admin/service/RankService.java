@@ -1,7 +1,7 @@
 package com.naah.admin.service;
 
-import com.xyl.game.dto.UserDTO;
-import com.xyl.game.po.GridPage;
+import com.naah.dto.UserDTO;
+import com.naah.po.GridPage;
 
 /**
  * RankService

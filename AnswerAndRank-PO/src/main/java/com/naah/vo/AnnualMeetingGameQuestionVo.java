@@ -1,6 +1,6 @@
 package com.naah.vo;
 
-import com.xyl.game.po.AnnualMeetingGameQuestion;
+import com.naah.po.AnnualMeetingGameQuestion;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

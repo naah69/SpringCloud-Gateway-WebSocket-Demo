@@ -1,18 +1,19 @@
 package com.naah.admin.service.impl;
 
-import com.xyl.game.mapper.AnnualMeetingGameQuestionMapper;
-import com.xyl.game.po.AnnualMeetingGameQuestion;
-import com.xyl.game.service.AnnualMeetingQuestionExctFileSerivce;
-import com.xyl.game.utils.HeapVariable;
-import com.xyl.game.utils.InitData;
-import com.xyl.game.utils.StringUtil;
-import com.xyl.game.vo.AnnualMeetingGameQuestionVo;
-import org.apache.log4j.Logger;
+import com.naah.admin.mapper.AnnualMeetingGameQuestionMapper;
+import com.naah.admin.service.AnnualMeetingQuestionExctFileSerivce;
+import com.naah.admin.utils.HeapVariable;
+import com.naah.admin.utils.InitData;
+import com.naah.admin.utils.StringUtil;
+import com.naah.po.AnnualMeetingGameQuestion;
+import com.naah.vo.AnnualMeetingGameQuestionVo;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +29,9 @@ import java.util.List;
  * @author dazhi
  */
 @Service
-public class AnnualMeetingQuestionExctFileServiceImpl implements AnnualMeetingQuestionExctFileSerivce{
+public class AnnualMeetingQuestionExctFileServiceImpl implements AnnualMeetingQuestionExctFileSerivce {
 
-	private static final Logger logger = Logger.getLogger(AnnualMeetingQuestionExctFileServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(AnnualMeetingQuestionExctFileServiceImpl.class);
 
 	@Autowired
 	private AnnualMeetingGameQuestionMapper annualMeetingGameQuestionMapper;

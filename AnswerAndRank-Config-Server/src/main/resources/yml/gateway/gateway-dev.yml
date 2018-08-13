@@ -1,2 +1,35 @@
+#logging:
+#  level:
+#    ROOT: DEBUG
+#    org.springframework.cloud.gateway: DEBUG
 server:
   port: 8888
+eureka:
+  client:
+     #下面两项没有代码提示
+     serviceUrl:
+      #服务治理地址
+      defaultZone: http://localhost:1025/eureka/
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: bulletscreen
+        uri: lb://bullet
+        predicates:
+        - Path=/bullet/info/**
+      - id: bulletscreen
+        uri: lb:ws://bullet
+        predicates:
+        - Path=/bullet/**
+#        filters:
+#        - name: Hystrix
+#          args:
+#            name: fallbackcmd
+#            fallbackUri: forward:/incaseoffailureusethis
+#        - RewritePath=/consumingserviceendpoint, /backingserviceendpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

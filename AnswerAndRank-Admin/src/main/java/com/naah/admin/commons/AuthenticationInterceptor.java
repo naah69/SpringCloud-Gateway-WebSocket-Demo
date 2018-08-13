@@ -1,7 +1,8 @@
 package com.naah.admin.commons;
 
-import com.xyl.game.utils.PropertiesUtils;
-import org.apache.log4j.Logger;
+import com.naah.admin.utils.PropertiesUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,7 +19,7 @@ import java.util.Properties;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
-	private static final Logger logger = Logger.getLogger(AuthenticationInterceptor.class);
+	private static final Logger logger = LoggerFactory.getLogger(AuthenticationInterceptor.class);
 
 	@Override
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)

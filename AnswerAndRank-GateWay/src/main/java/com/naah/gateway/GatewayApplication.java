@@ -9,7 +9,7 @@ import org.springframework.session.config.annotation.web.server.EnableSpringWebS
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @SpringCloudApplication
-@EnableRedisHttpSession
+//@EnableRedisHttpSession
 public class GatewayApplication {
 
     public static void main(String[] args) {

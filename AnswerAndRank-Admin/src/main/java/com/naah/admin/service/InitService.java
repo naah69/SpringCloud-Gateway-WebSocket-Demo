@@ -1,7 +1,7 @@
 package com.naah.admin.service;
 
-import com.xyl.game.po.GridPage;
-import com.xyl.game.po.User;
+import com.naah.po.GridPage;
+import com.naah.po.User;
 
 /**
  * InitService

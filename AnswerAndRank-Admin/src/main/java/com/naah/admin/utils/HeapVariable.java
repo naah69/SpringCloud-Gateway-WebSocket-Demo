@@ -1,11 +1,11 @@
 package com.naah.admin.utils;
 
+import com.naah.admin.mapper.AnnualMeetingGameQuestionMapper;
 import com.naah.dto.QuestionDTO;
 import com.naah.po.Admin;
 import com.naah.po.AnnualMeetingGameQuestion;
 import com.naah.po.User;
 import com.naah.vo.AnnualMeetingGameQuestionVo;
-import com.xyl.game.mapper.AnnualMeetingGameQuestionMapper;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.redis.core.HashOperations;
 

@@ -1,8 +1,8 @@
 package com.naah.admin.utils;
 
-import com.xyl.game.dto.QuestionDTO;
-import com.xyl.game.po.AnnualMeetingGameQuestion;
-import com.xyl.game.po.Page;
+import com.naah.dto.QuestionDTO;
+import com.naah.po.AnnualMeetingGameQuestion;
+import com.naah.po.Page;
 
 import java.util.List;
 import java.util.Map;

@@ -1,14 +1,14 @@
 package com.naah.admin.utils;
 
 import com.google.gson.reflect.TypeToken;
-import com.xyl.game.dto.QuestionDTO;
-import com.xyl.game.mapper.AnnualMeetingGameQuestionMapper;
-import com.xyl.game.po.Admin;
-import com.xyl.game.po.AnnualMeetingGameQuestion;
-import com.xyl.game.po.User;
-import com.xyl.game.vo.AnnualMeetingGameQuestionVo;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import com.naah.admin.mapper.AnnualMeetingGameQuestionMapper;
+import com.naah.dto.QuestionDTO;
+import com.naah.po.Admin;
+import com.naah.po.AnnualMeetingGameQuestion;
+import com.naah.po.User;
+import com.naah.vo.AnnualMeetingGameQuestionVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2018-01-22
  */
 public class InitData {
-    private final static Logger logger = Logger.getLogger(InitData.class);
+    private final static Logger logger = LoggerFactory.getLogger(InitData.class);
 
     /**
      * 初始化数据
@@ -39,7 +39,6 @@ public class InitData {
      * @param context spring容器
      */
     public static void initData(AnnualMeetingGameQuestionMapper mapper, ApplicationContext context, StringRedisTemplate redis) {
-        initLog4j();
         HeapVariable.mapper = mapper;
         logger.info("初始化数据库mapper");
         HeapVariable.context = context;
@@ -59,13 +58,7 @@ public class InitData {
         initQuestion();
     }
 
-    /**
-     * 初始化Log4j
-     */
-    public static void initLog4j() {
-        PropertyConfigurator.configure(PropertiesUtils.initProperties("log4j.properties"));
-        logger.info("初始化Log4j");
-    }
+
 
 
     /**

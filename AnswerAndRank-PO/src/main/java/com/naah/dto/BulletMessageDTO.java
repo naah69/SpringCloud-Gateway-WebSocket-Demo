@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * BulletMessgaeDTO
+ * BulletMessageDTO
  *
  * @author naah
  * @date 2018-05-03 上午12:50
@@ -12,7 +12,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BulletMessgaeDTO {
+public class BulletMessageDTO {
     private String username;
     private String message;
 }

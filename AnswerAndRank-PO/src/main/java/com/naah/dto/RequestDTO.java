@@ -1,6 +1,6 @@
 package com.naah.dto;
 
-import com.xyl.game.po.User;
+import com.naah.po.User;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

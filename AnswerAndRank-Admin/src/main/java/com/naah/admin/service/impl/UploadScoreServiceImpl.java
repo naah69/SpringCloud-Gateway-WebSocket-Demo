@@ -1,15 +1,16 @@
 package com.naah.admin.service.impl;
 
-import com.xyl.game.dto.QuestionDTO;
-import com.xyl.game.po.AnnualMeetingGameQuestion;
-import com.xyl.game.po.Answer;
-import com.xyl.game.po.GridPage;
-import com.xyl.game.po.User;
-import com.xyl.game.service.UploadScoreService;
-import com.xyl.game.utils.FinalVariable;
-import com.xyl.game.utils.HeapVariable;
-import com.xyl.game.utils.QuestionUtils;
-import org.apache.log4j.Logger;
+import com.naah.admin.service.UploadScoreService;
+import com.naah.admin.utils.FinalVariable;
+import com.naah.admin.utils.HeapVariable;
+import com.naah.admin.utils.QuestionUtils;
+import com.naah.dto.QuestionDTO;
+import com.naah.po.AnnualMeetingGameQuestion;
+import com.naah.po.Answer;
+import com.naah.po.GridPage;
+import com.naah.po.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -24,7 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Service
 public class UploadScoreServiceImpl implements UploadScoreService {
-    private static final Logger logger = Logger.getLogger(UploadScoreService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UploadScoreService.class);
 
     @Override
     public GridPage<QuestionDTO> uploadScore(Integer id, Byte answer, Integer times, String sessionId, User user) {

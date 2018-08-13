@@ -1,8 +1,8 @@
 package com.naah.admin.service;
 
 
-import com.xyl.game.po.AnnualMeetingGameQuestion;
-import com.xyl.game.vo.AnnualMeetingGameQuestionVo;
+import com.naah.po.AnnualMeetingGameQuestion;
+import com.naah.vo.AnnualMeetingGameQuestionVo;
 
 import java.io.InputStream;
 import java.util.List;
