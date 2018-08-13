@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>后台页面</title>
+<link rel="stylesheet" href="http://naah.eqqhr.com/layui/css/layui.css" />
+<style type="text/css">
+.leftMargin{
+  margin-left:10px;
+}
+</style>
+
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+	<div class="layui-header">
+    <div class="layui-logo"><img src="http://naah.eqqhr.com/images/logo.png" /></div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+
+    </ul>
+
+  </div>
+	<div class="layui-side layui-bg-black">
+	    <div class="layui-side-scroll">
+	      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+	      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+	        <li class="layui-nav-item layui-nav-itemed">
+	          <a class="" href="javascript:;">游戏设置</a>
+	          <dl class="layui-nav-child">
+	            <dd><a href="/admin/setUpPage" target="demoAdmin">时间设置</a></dd>
+	            <dd><a href="/admin/selectPage" target="demoAdmin">题目选择</a></dd>
+	            <dd><a href="/admin/loadPage" target="demoAdmin">问题设置</a></dd>
+	          </dl>
+	        </li>
+	      </ul>
+	    </div>
+	</div>
+	<div class="layui-body leftMargin">
+	    <iframe src="/admin/setUpPage" frameborder="0" name="demoAdmin" id="demoAdmin" style="width: 100%; height: 100%;"></iframe>
+	</div>
+	<div class="layui-footer">
+	    <!-- 底部固定区域 -->
+	    © http://www.xinyunlian.com - 新云联技术有限公司提供支持
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="http://naah.eqqhr.com/layui/layui.js"></script>
+<script type="text/javascript">
+//JavaScript代码区域
+layui.use(['element','layer'], function(){
+  var element = layui.element;
+});
+var host = window.location.host;
+</script>
+</html>

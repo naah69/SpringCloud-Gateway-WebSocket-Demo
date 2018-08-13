@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>题目选择</title>
+<link rel="stylesheet" href="http://naah.eqqhr.com/layui/css/layui.css"/>
+</head>
+<body>
+<pre class="layui-code" id="questionShow">
+答案显示：<span id="answer"></span>
+</pre>
+
+<table class="layui-table" id="loadFile" lay-filter="loadFile">
+	 <colgroup>
+	    <col width="5%" />
+	    <col width="95%" />
+	  </colgroup>
+      <thead>
+        <tr>
+	        <th>题目</th>
+	        <th id="topic"></th>
+        </tr>
+      </thead>
+      <tbody id="demoList">
+      	<tr>
+	        <th>A</th>
+	        <th id="answerOne"></th>
+        </tr>
+        <tr>
+	        <th>B</th>
+	        <th id="answerTwo"></th>
+        </tr>
+        <tr>
+	        <th>C</th>
+	        <th id="answerThree"></th>
+        </tr>
+        <tr>
+	        <th>D</th>
+	        <th id="answerFour"></th>
+        </tr>
+      </tbody>
+</table>
+<button class="layui-btn" id="sendAnswer">提交答案</button>
+<button class="layui-btn" id="sendQuestion">下一题</button>
+<pre class="layui-code" id="questionShow">
+当前人数：<span id="takePartNum"></span>
+</pre>
+<table class="layui-table" id="ConnectNum" lay-filter="ConnectNum"></table>
+<a class="layui-btn" href="/admin/PrintData" id="PrintData">打印数据</a>
+</body>
+<script type="text/javascript" src="http://naah.eqqhr.com/layui/layui.js"></script>
+<script type="text/javascript">
+layui.use(['util','laydate','layer','table'], function(){
+	var $ = layui.$ ,layer = layui.layer,table=layui.table;
+	$('#sendQuestion').click(function(){
+		$.post('/admin/sendQuestion', function(data) {
+			if(data.errorCode!='0'){
+				layer.alert(data.message);
+			}else {
+				var str = "";
+				var rows = data.rows;
+				str = '第'+JSON.stringify(rows[0].id)+'题：'+rows[0].topic+';\n';
+				$('#topic').html(str);
+				$('#answerOne').html(rows[0].answerOne);
+				$('#answerTwo').html(rows[0].answerTwo);
+				$('#answerThree').html(rows[0].answerThree);
+				$('#answerFour').html(rows[0].answerFour);
+				var rightAnswer = rows[0].rightAnswer;
+				var rightAnswerStr = '';
+				switch(rightAnswer){
+					case 1 :
+					  rightAnswerStr = 'A';
+					  break;
+				    case 2 :
+				      rightAnswerStr = 'B';
+				      break;
+				    case 3 :
+				      rightAnswerStr = 'C';
+				      break;
+				    case 4 :
+				      rightAnswerStr = 'D';
+				      break;
+				    default:
+				      rightAnswerStr = '';
+				}
+				$('#answer').html(rightAnswerStr);
+				layer.msg('题目已经发送！');
+			}
+		})
+	})
+	$('#sendAnswer').click(function(){
+		$.post('/admin/sendAnswer', function(data) {
+			if(data.errorCode !=0){
+				layer.alert(data.message);
+			}else{
+				layer.msg('答案已经发送');
+			}
+		})
+	})
+	var host = window.location.hostname;
+	var websocket = null;
+	if ('WebSocket' in window) {
+   		 websocket = new WebSocket("ws://"+host+"/Manage");
+	}
+
+	websocket.onmessage = function(event){
+		console.log(event.data);
+		var json=null;
+		try{
+			json=JSON.parse(event.data)
+		}
+		catch(e){
+		}
+
+		if(json!=null){
+			if(json.method=='count'){
+				$('#takePartNum').html(json.message)
+			}
+			if(json.method=='rank'){
+				var user = json.rows;
+				console.log(user.length)
+				if(user!=null){
+					table.reload('ConnectNum',{
+						data:user
+					});
+				}
+			}
+		}
+	}
+
+	table.render({
+		elem: '#ConnectNum'
+		,data:[]
+	 	,cols: [[
+	 		 {field: 'username', title: '名称', width: '25%'}
+             , {field: 'department', title: '部门', width: '25%'}
+             , {field: 'score', title: '分数', width: '25%'}
+             , {field: 'timesSecond', title: '用时', width: '25%'}
+	 	]]
+	 	,id:'ConnectNum'
+	 	,height: 450
+	 	,page:true
+	 	,limit:10
+	})
+})
+</script>
+</html>

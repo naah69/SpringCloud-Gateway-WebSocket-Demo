@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>登录</title>
+<link rel="stylesheet" href="http://naah.eqqhr.com/layui/css/layui.css" />
+<style type="text/css">
+#fristDiv{
+	margin:10px;
+	width: 300px;
+	height:600px;
+}
+#title{
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+
+<div id="fristDiv">
+	<h1 id="title"></h1>
+	<form class="layui-form" action="" id="form1">
+		<div class="layui-form-item">
+		    <label class="layui-form-label">密码：</label>
+		    <div class="layui-input-block">
+		      <input type="password" name="pwd" lay-verify="title" autocomplete="off" placeholder="请输入密码" class="layui-input" />
+		    </div>
+		</div>
+		<input type="hidden" name="adminId" id="adminId"/>
+		<div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button class="layui-btn" lay-submit="" lay-filter="submit">提交</button>
+		    </div>
+		</div>
+	</form>
+</div>
+
+</body>
+<script type="text/javascript" src="http://naah.eqqhr.com/layui/layui.js"></script>
+<script type="text/javascript">
+	layui.use('form',function(){
+		var $ = layui.$;
+		var form = layui.form;
+		$.post("/admin/isFirstAdmin", function(data) {
+			var title = $('#title');
+			if(data == 'no'){
+				title.html('请输入密码！');
+			}else{
+				title.html('请设置密码!');
+				$('#adminId').val(data);
+			}
+		})
+
+		//监听提交
+		form.on('submit(submit)', function(data){
+		  $.post("/admin/admin",$('#form1').serialize(),function(data){
+			  	if(data=="ok"){
+			  		location.href="/admin/";
+			  	}else{
+			  		 layer.alert('密码错误！');
+			  	}
+		  })
+		  return false;
+		});
+	})
+</script>
+</html>

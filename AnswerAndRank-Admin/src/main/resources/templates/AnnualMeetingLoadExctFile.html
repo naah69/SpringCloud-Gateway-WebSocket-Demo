@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>上传文件</title>
+<link rel="stylesheet" href="http://naah.eqqhr.com/layui/css/layui.css" />
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+  <legend>上传年会游戏问题</legend>
+</fieldset>
+<div class="layui-upload">
+   <div class="layui-upload-drag" id="exctFileLoad">
+	  <i class="layui-icon"></i>
+	  <p>点击上传，或将文件拖拽到此处</p>
+	</div>
+  <div class="layui-upload-list">
+    <table class="layui-table" id="loadFile" lay-filter="loadFile">
+      <thead>
+        <tr><th>文件名</th>
+        <th>大小</th>
+        <th>状态</th>
+        </tr>
+      </thead>
+      <tbody id="demoList"></tbody>
+    </table>
+
+    <table class="layui-hide" id="annualMeeting_question_table_temporaryData" lay-filter="annualMeeting_question_table_temporaryData"></table>
+  </div>
+  <button type="button" class="layui-btn" id="testListAction">确定保存</button>
+</div>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+  <legend>数据库数据</legend>
+</fieldset>
+<table class="layui-hide" id="annualMeeting_question_table" lay-filter="annualMeeting_question_table"></table>
+<button type="button" class="layui-btn" id="dumpData">清除数据</button>
+</body>
+<script type="text/javascript" src="http://naah.eqqhr.com/layui/layui.js"></script>
+<script type="text/javascript" src="http://naah.eqqhr.com/tableExcet1.js"></script>
+<script type="text/javascript" src="http://naah.eqqhr.com/uploadExctFile.js"></script>
+<script type="text/javascript" src="http://naah.eqqhr.com/buttom.js"></script>
+<script type="text/javascript">
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+</html>
