@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Spring Boot WebSocket+广播式</title>
+</head>
+<body onload="disconnect()">
+    <noscript>
+        <h2 style="color:#ff0000">貌似你的浏览器不支持websocket</h2>
+    </noscript>
+    <div>
+        <div>
+            <button id="connect" onclick="connect()">连接</button>
+            <button id="disconnect"  onclick="disconnect();">断开连接</button>
+        </div>
+        <div id="conversationDiv">
+            <label>输入你的名字</label> <input type="text" id="name" />
+            <br>
+            <label>输入消息</label> <input type="text" id="messgae" />
+            <button id="send" onclick="send();">发送</button>
+            <p id="response"></p>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var stompClient = null;
+        var host="http://127.0.0.1:8888";
+        function setConnected(connected) {
+            document.getElementById('connect').disabled = connected;
+            document.getElementById('disconnect').disabled = !connected;
+            document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
+            $('#response').html();
+        }
+
+        function connect() {
+            var socket = new SockJS(host+'/bullet');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function(frame) {
+                setConnected(true);
+                console.log('Connected:' + frame);
+                stompClient.subscribe('/toAll/bulletScreen', function(response) {
+                    showResponse(response.body);
+                });
+
+            });
+        }
+
+
+        function disconnect() {
+            if (stompClient != null) {
+                stompClient.disconnect();
+            }
+            setConnected(false);
+            console.log("Disconnected");
+        }
+
+        function send() {
+            var name = $('#name').val();
+            var message = $('#messgae').val();
+            stompClient.send("/chat", {}, JSON.stringify({username:name,message:message}));
+        }
+
+        function showResponse(message) {
+            var response = $('#response');
+            response.html(message);
+        }
+    </script>
+</body>
+</html>
